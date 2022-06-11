@@ -55,12 +55,12 @@ def ReturnNumber(nums):
 TAC = folium.GeoJson(
     data=gdf_TAC.to_json(),
     style_function = lambda feature:{
-        "fillColor": colormap(ReturnNumber(feature['properties']['TAC'])),
+        "fillColor": colormap(ReturnNumber(feature['properties']['TAC1'])),
         'fillOpacity': 0.7,
         "stroke": False
     },
     highlight_function = lambda feature:{
-        "fillColor": colormap(ReturnNumber(feature['properties']['TAC'])),
+        "fillColor": colormap(ReturnNumber(feature['properties']['TAC1'])),
         'fillOpacity': 0.8,
         'color': 'red',
         "stroke": True
@@ -68,8 +68,8 @@ TAC = folium.GeoJson(
     name='TAC',
     show=True,
     tooltip = folium.features.GeoJsonTooltip(
-        fields=['N03_001_x', 'TAC', 'samples'],
-        aliases=['都道府県名', 'TAC', 'サンプル数']
+        fields=['N03_001_x', 'TAC1', 'samples1',],
+        aliases=['都道府県名', 'TAC', 'サンプル数',]
     )
 ).add_to(map)
 
@@ -79,7 +79,7 @@ plugins.Search(
     geom_type = "Polygon",
     position = "topleft",
     placeholder = "TAC",
-    search_label = "TAC",
+    search_label = "TAC1",
     collapsed = False
 ).add_to(map)
 
